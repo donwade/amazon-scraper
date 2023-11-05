@@ -5,7 +5,7 @@ from time import sleep
 
 
 # Create an Extractor by reading from the YAML file
-e = Extractor.from_yaml_file('selectors.yml')
+e = Extractor.from_yaml_file('amzon_fullSite.yml')
 
 def scrape(url):  
 
@@ -36,11 +36,14 @@ def scrape(url):
     return e.extract(r.text)
 
 # product_data = []
-with open("urls.txt",'r') as urllist, open('output.jsonl','w') as outfile:
+with open("amzon_fullSite.config",'r') as urllist, open('amzon_fullSite_report.jsonl','w') as outfile:
     for url in urllist.read().splitlines():
         data = scrape(url) 
         if data:
-            json.dump(data,outfile)
-            outfile.write("\n")
-            # sleep(5)
+            for product in data['products']:
+                product['search_url'] = url
+                print("Saving Product: %s"%product['title'])
+                json.dump(product,outfile)
+                outfile.write("\n")
+                # sleep(5)
     

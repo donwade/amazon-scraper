@@ -5,7 +5,7 @@ from time import sleep
 
 
 # Create an Extractor by reading from the YAML file
-e = Extractor.from_yaml_file('search_results.yml')
+e = Extractor.from_yaml_file('amzon_singleURLs.yml')
 
 def scrape(url):  
 
@@ -36,14 +36,11 @@ def scrape(url):
     return e.extract(r.text)
 
 # product_data = []
-with open("search_results_urls.txt",'r') as urllist, open('search_results_output.jsonl','w') as outfile:
+with open("amzon_singleURLs.config",'r') as urllist, open('amzon_singleURL_report.jsonl','w') as outfile:
     for url in urllist.read().splitlines():
         data = scrape(url) 
         if data:
-            for product in data['products']:
-                product['search_url'] = url
-                print("Saving Product: %s"%product['title'])
-                json.dump(product,outfile)
-                outfile.write("\n")
-                # sleep(5)
+            json.dump(data,outfile)
+            outfile.write("\n")
+            # sleep(5)
     

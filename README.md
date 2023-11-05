@@ -22,7 +22,7 @@ From a terminal
 
 1. Add Amazon Product URLS to [amzon_singleURLs.config](amzon_singleURLs.config)
 1. Run `python3 amzon_singleURLs.py`
-1. Get data from [amzon_singleURL_report.jsonl](amzon_singleURL_report.jsonl)
+1. Get data from [amzon_singleURLs_report.jsonl](amzon_singleURLs_report.jsonl)
 
 ## Scrape Products from Search Results
 

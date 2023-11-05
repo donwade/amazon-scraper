@@ -36,7 +36,7 @@ def scrape(url):
     return e.extract(r.text)
 
 # product_data = []
-with open("amzon_singleURLs.config",'r') as urllist, open('amzon_singleURL_report.jsonl','w') as outfile:
+with open("amzon_singleURLs.config",'r') as urllist, open('amzon_singleURLs_report.jsonl','w') as outfile:
     for url in urllist.read().splitlines():
         data = scrape(url) 
         if data:

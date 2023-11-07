@@ -1,0 +1,15 @@
+#/bin/bash
+reset
+TAG_EXTRACTOR="\"[[:alnum:]_]*\":"
+
+# for debugging sed
+#grep --color "$TAG_EXTRACTOR" amzon_singleURLs_report.jsonl
+#echo "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+
+# use sed to caputure tag and defer it into the RHS **after** the crlf
+cat amzon_singleURLs_report.jsonl    | sed  "s=\($TAG_EXTRACTOR\)=\n\1=g" | grep --color $TAG_EXTRACTOR
+echo
+echo "derived from ...."
+echo
+cat amzon_singleURLs.config
+

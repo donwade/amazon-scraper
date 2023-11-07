@@ -1,0 +1,4 @@
+rm -f  amzon_singleURLs_report.jsonl
+python ./amzon_singleURLs.py ;egrep --color "name|price|rating|number" amzon_singleURLs_report.jsonl
+./parse
+

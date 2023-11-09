@@ -1,19 +1,51 @@
+
+# when css: has a #, it means search for an ID not a CLASS
+#    search for id=productTitle
+#    assign the text to the variable called name
 name:
     css: '#productTitle'
     type: Text
+
+#
+#   search for tag 'span'
+#   then search for class a-price
+#        then search for tag 'span'
+#        then search for class a-offscreen
+#            you will then find simple text ie $137.33
+#            apply nth-of-type(1) means keep first line of the printable stuff above
+#
+#   then assign to variable called price
+
 price:
     css: 'span.a-price:nth-of-type(1) span.a-offscreen'
     xpath: null
     type: Text
 
+# search for ID called id=featuresbullets_feature_div
+#    capture the text field
+#    assign to variable short_description.
+
 short_description:
     css: '#featurebullets_feature_div'
     type: Text
+
+# search for id=imgTagWrapper
+#    then search for TAG img
+#    search for attribute called data-a-dynamic-image
+#    ie search for  data-a-dynamic-image='blahblahblah.png'
+#
+#    put blahblahblah.png into a LIST called images
 
 images:
     css: '.imgTagWrapper img'
     type: Attribute
     attribute: data-a-dynamic-image
+
+# search for tag span
+#    search for class a-icon-alt
+#    capture text
+#
+#    put text into rating.
 
 rating:
     css: span.a-icon-alt

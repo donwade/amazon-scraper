@@ -32,7 +32,8 @@ def scrape(url):
         else:
             print("Page %s must have been blocked by Amazon as the status code was %d"%(url,r.status_code))
         return None
-    # Pass the HTML of the page and create 
+    # Pass the HTML of the page and create
+    print (r.text)
     return e.extract(r.text)
 
 # product_data = []

@@ -30,7 +30,7 @@ short_description:
     type: Text
 
 # search for id=imgTagWrapper
-#    then search for TAG img
+#    make sure its inside a tag called 'img'
 #    search for attribute called data-a-dynamic-image
 #    ie search for  data-a-dynamic-image='blahblahblah.png'
 #
@@ -50,10 +50,28 @@ images:
 rating:
     css: span.a-icon-alt
     type: Text
-    
+
+# search for tag SPAN
+#    search for ID acrCustomerReviewText (notice hashtag)
+#    find type field that has text
+#
+#    put in number_of_reviews
+
 number_of_reviews:
-    css: 'id.acrCustomerReviewText span.a-size-base'
+    #css: 'span#acrCustomerReviewText span.a-size-base' NOPE!
+    css: 'span#acrCustomerReviewText'
     type: Text
+
+# search for tag 'div'
+#    and search for ID  id=averageCustomerReviews
+#    and find attribute named data-asin
+#
+#    copy result into asin_value
+
+asin_value:
+    css: 'div#averageCustomerReviews'
+    type: Attribute
+    attribute: data-asin
 
 variants:
     css: 'form.a-section li'
@@ -68,12 +86,16 @@ variants:
             css: ""
             type: Attribute
             attribute: data-defaultasin
+
 product_description:
     css: '#productDescription'
     type: Text
-sales_rank:
-    css: 'li#SalesRank'
-    type: Text
-link_to_all_reviews:
-    css: 'div.card-padding a.a-link-emphasis'
-    type: Link
+
+#sales_rank:
+#    css: 'li#SalesRank'
+#    type: Text
+
+#link_to_all_reviews:
+#    css: 'div.card-padding a.a-link-emphasis'
+#    type: Link
+
